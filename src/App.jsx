@@ -2,7 +2,6 @@ import "./App.css";
 import { useState } from "react";
 import ContactList from "./components/contactList";
 import SelectedContact from "./components/SelectedContact";
-// import SelectedContact from "./components/SelectedContact";
 
 const dummyContacts = [
   { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
@@ -24,10 +23,13 @@ export default function App() {
       ) : (
         <ContactList
           contacts={contacts}
+          setContacts={setContacts}
           setSelectedContactId={setSelectedContactId}
         />
       )}
-      {selectedContact && <SelectedContact selectedContact={selectedContact} />}
+      {selectedContact && (
+        <SelectedContact selectedContactId={selectedContactId} />
+      )}
     </>
   );
 }
